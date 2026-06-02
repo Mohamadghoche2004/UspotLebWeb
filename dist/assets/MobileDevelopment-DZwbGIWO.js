@@ -1,0 +1,1 @@
+import{i as e}from"./motion-CrIIjPk1.js";import{i as t}from"./vendor-BQx8qRJy.js";import{c as n}from"./index-D-asPyUU.js";import{t as r}from"./ServicePageLayout-DI5Rs0IC.js";var i=e();function a(){let e=n(`mobile-development`);return e?(0,i.jsx)(r,{service:e}):(0,i.jsx)(t,{to:`/services`,replace:!0})}export{a as default};
