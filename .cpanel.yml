@@ -1,0 +1,6 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/uspotnet/public_html/
+    - npm ci
+    - npm run build
+    - /bin/cp -R dist/. $DEPLOYPATH
