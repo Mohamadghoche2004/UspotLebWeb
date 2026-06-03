@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiMenuAlt3, HiX } from 'react-icons/hi'
@@ -24,105 +25,139 @@ export function Navbar() {
     }
   }, [mobileOpen])
 
-  return (
-    <header
-      className={cn(
-        'fixed top-0 right-0 left-0 z-50 transition-all duration-300',
-        scrolled ? 'glass-strong py-3 shadow-lg shadow-black/20' : 'bg-transparent py-5',
-      )}
-    >
-      <nav className="container-custom flex items-center justify-between" aria-label="Main navigation">
-        <Logo onClick={() => setMobileOpen(false)} />
+  const closeMobile = () => setMobileOpen(false)
 
-        <div className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.href}
-              to={link.href}
-              className={({ isActive }) =>
-                cn(
-                  'relative text-sm font-medium transition-colors hover:text-white',
-                  isActive ? 'text-white' : 'text-white/60',
-                )
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  {link.label}
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute -bottom-1 left-0 h-0.5 w-full bg-gradient-to-r from-violet-400 to-cyan-400"
-                    />
-                  )}
-                </>
-              )}
-            </NavLink>
-          ))}
-        </div>
+  const headerOpaque = mobileOpen || scrolled
 
-        <div className="hidden lg:block">
-          <Button to="/contact" size="sm">
-            Book Consultation
-          </Button>
-        </div>
-
-        <button
-          type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-xl glass lg:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={mobileOpen}
-        >
-          {mobileOpen ? <HiX className="h-6 w-6" /> : <HiMenuAlt3 className="h-6 w-6" />}
-        </button>
-      </nav>
-
+  const mobileMenu =
+    typeof document !== 'undefined' ? (
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 top-[72px] z-40 glass-strong lg:hidden"
-          >
-            <div className="container-custom flex flex-col gap-2 py-8">
-              {navLinks.map((link, i) => (
+          <>
+            <motion.button
+              type="button"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-sm lg:hidden"
+              aria-label="Close menu"
+              onClick={closeMobile}
+            />
+
+            <motion.nav
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-x-0 top-16 bottom-0 z-[70] overflow-y-auto bg-surface lg:hidden"
+              aria-label="Mobile navigation"
+            >
+              <div className="container-custom flex flex-col gap-2 py-8">
+                {navLinks.map((link, i) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <NavLink
+                      to={link.href}
+                      onClick={closeMobile}
+                      className={({ isActive }) =>
+                        cn(
+                          'block rounded-xl px-4 py-3 text-lg font-medium transition-colors',
+                          isActive
+                            ? 'bg-white/15 text-white'
+                            : 'text-white/90 hover:bg-white/10',
+                        )
+                      }
+                    >
+                      {link.label}
+                    </NavLink>
+                  </motion.div>
+                ))}
                 <motion.div
-                  key={link.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
+                  className="mt-4"
                 >
-                  <NavLink
-                    to={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={({ isActive }) =>
-                      cn(
-                        'block rounded-xl px-4 py-3 text-lg font-medium transition-colors',
-                        isActive ? 'bg-white/10 text-white' : 'text-white/70 hover:bg-white/5',
-                      )
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
+                  <Button to="/contact" className="w-full" onClick={closeMobile}>
+                    Book Consultation
+                  </Button>
                 </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navLinks.length * 0.05 }}
-                className="mt-4"
-              >
-                <Button to="/contact" className="w-full" onClick={() => setMobileOpen(false)}>
-                  Book Consultation
-                </Button>
-              </motion.div>
-            </div>
-          </motion.div>
+              </div>
+            </motion.nav>
+          </>
         )}
       </AnimatePresence>
-    </header>
+    ) : null
+
+  return (
+    <>
+      <header
+        className={cn(
+          'fixed top-0 right-0 left-0 z-[80] transition-all duration-300',
+          headerOpaque
+            ? 'border-b border-white/10 bg-background/95 py-3 shadow-lg shadow-black/20 backdrop-blur-xl'
+            : 'bg-transparent py-5',
+        )}
+      >
+        <nav
+          className="container-custom flex w-full min-w-0 items-center justify-between gap-3 overflow-x-hidden"
+          aria-label="Main navigation"
+        >
+          <div className="min-w-0 max-w-[min(55vw,200px)] shrink">
+            <Logo onClick={closeMobile} className="max-w-full" />
+          </div>
+
+          <div className="hidden items-center gap-8 lg:flex">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.href}
+                to={link.href}
+                className={({ isActive }) =>
+                  cn(
+                    'relative text-sm font-medium transition-colors hover:text-white',
+                    isActive ? 'text-white' : 'text-white/60',
+                  )
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    {link.label}
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute -bottom-1 left-0 h-0.5 w-full bg-gradient-to-r from-violet-400 to-cyan-400"
+                      />
+                    )}
+                  </>
+                )}
+              </NavLink>
+            ))}
+          </div>
+
+          <div className="hidden lg:block">
+            <Button to="/contact" size="sm">
+              Book Consultation
+            </Button>
+          </div>
+
+          <button
+            type="button"
+            className="relative z-[81] flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/10 lg:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <HiX className="h-6 w-6" /> : <HiMenuAlt3 className="h-6 w-6" />}
+          </button>
+        </nav>
+      </header>
+
+      {mobileMenu && createPortal(mobileMenu, document.body)}
+    </>
   )
 }

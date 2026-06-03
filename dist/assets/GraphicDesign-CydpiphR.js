@@ -1,0 +1,1 @@
+import{i as e}from"./motion-CrIIjPk1.js";import{i as t}from"./vendor-Dl_1RVkR.js";import{c as n}from"./index-BTHDpDLO.js";import{t as r}from"./ServicePageLayout-CMu8PuhI.js";var i=e();function a(){let e=n(`graphic-design`);return e?(0,i.jsx)(r,{service:e}):(0,i.jsx)(t,{to:`/services`,replace:!0})}export{a as default};

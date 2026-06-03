@@ -24,7 +24,10 @@ export function Logo({
     <motion.img
       src={src}
       alt={siteConfig.name}
-      className={cn('h-9 w-auto object-contain md:h-11', imageClassName)}
+      className={cn(
+        'h-8 w-auto max-w-[160px] object-contain sm:h-9 sm:max-w-none md:h-11',
+        imageClassName,
+      )}
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 400, damping: 25 }}
     />

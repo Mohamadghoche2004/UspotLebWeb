@@ -16,9 +16,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
+    overflow-x: hidden;
     @apply bg-background text-white antialiased;
     font-family: var(--font-sans);
     background-image:
