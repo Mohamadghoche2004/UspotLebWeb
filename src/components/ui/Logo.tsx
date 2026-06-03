@@ -9,6 +9,8 @@ interface LogoProps {
   variant?: 'light' | 'dark'
   linkToHome?: boolean
   onClick?: () => void
+  /** Disable Framer Motion on the image (use in navbar to prevent scroll flicker) */
+  staticImage?: boolean
 }
 
 export function Logo({
@@ -17,17 +19,21 @@ export function Logo({
   variant = 'light',
   linkToHome = true,
   onClick,
+  staticImage = false,
 }: LogoProps) {
   const src = variant === 'light' ? siteConfig.logo.light : siteConfig.logo.dark
+  const imgClass = cn(
+    'h-8 w-auto max-w-[160px] object-contain sm:h-9 sm:max-w-none md:h-11',
+    imageClassName,
+  )
 
-  const image = (
+  const image = staticImage ? (
+    <img src={src} alt={siteConfig.name} className={imgClass} />
+  ) : (
     <motion.img
       src={src}
       alt={siteConfig.name}
-      className={cn(
-        'h-8 w-auto max-w-[160px] object-contain sm:h-9 sm:max-w-none md:h-11',
-        imageClassName,
-      )}
+      className={imgClass}
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 400, damping: 25 }}
     />
