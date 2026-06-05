@@ -1,7 +1,8 @@
 import { useState, type FormEvent } from 'react'
+import emailjs from '@emailjs/browser'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiCheckCircle } from 'react-icons/hi'
-import { budgetOptions, serviceOptions } from '@/data/site.config'
+import { budgetOptions, serviceOptions, siteConfig } from '@/data/site.config'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/cn'
 
@@ -34,6 +35,7 @@ export function ContactForm({ compact = false }: ContactFormProps) {
   const [errors, setErrors] = useState<Partial<FormData>>({})
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const validate = (): boolean => {
     const newErrors: Partial<FormData> = {}
@@ -53,11 +55,43 @@ export function ContactForm({ compact = false }: ContactFormProps) {
     if (!validate()) return
 
     setLoading(true)
-    await new Promise((r) => setTimeout(r, 1000))
-    console.log('Form submission:', form)
-    setLoading(false)
-    setSubmitted(true)
-    setForm(initialForm)
+    setSubmitError(null)
+
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('Contact form is not configured yet. Please try again later.')
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: form.name,
+          email: form.email,
+          phone: form.phone || 'Not provided',
+          company: form.company || 'Not provided',
+          service: form.service || 'Not specified',
+          budget: form.budget || 'Not specified',
+          message: form.message,
+        },
+        { publicKey },
+      )
+
+      setSubmitted(true)
+      setForm(initialForm)
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : `Failed to send message. Please email us at ${siteConfig.email}`,
+      )
+    } finally {
+      setLoading(false)
+    }
   }
 
   const update = (field: keyof FormData, value: string) => {
@@ -210,6 +244,12 @@ export function ContactForm({ compact = false }: ContactFormProps) {
           {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
         </div>
       </div>
+
+      {submitError && (
+        <p className="mt-4 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+          {submitError}
+        </p>
+      )}
 
       <Button type="submit" className="mt-6 w-full sm:w-auto" disabled={loading}>
         {loading ? 'Sending...' : 'Send Message'}

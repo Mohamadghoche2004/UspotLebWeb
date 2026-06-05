@@ -8,8 +8,8 @@ export const siteConfig = {
     light: '/logo-white.png',
     dark: '/logo-dark.png',
   },
-  email: 'hello@uspotleb.com',
-  phone: '+961 1 234 567',
+  email: 'uspotleb@gmail.com',
+  phone: '+961 76646946',
   address: {
     street: 'Beirut Digital District',
     city: 'Beirut',
