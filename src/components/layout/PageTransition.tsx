@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
-import { pageTransition } from '@/lib/motion'
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 interface PageTransitionProps {
   children: React.ReactNode
+  pageKey: string
 }
 
-export function PageTransition({ children }: PageTransitionProps) {
+export function PageTransition({ children, pageKey }: PageTransitionProps) {
   const prefersReducedMotion = usePrefersReducedMotion()
 
   if (prefersReducedMotion) {
@@ -15,10 +15,10 @@ export function PageTransition({ children }: PageTransitionProps) {
 
   return (
     <motion.main
-      variants={pageTransition}
-      initial="initial"
-      animate="animate"
-      exit="exit"
+      key={pageKey}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
     >
       {children}
     </motion.main>

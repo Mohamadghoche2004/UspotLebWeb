@@ -27,7 +27,7 @@ export const siteConfig = {
     projects: 50,
     clients: 40,
     years: 5,
-    team: 5,
+    team: 4,
   },
 } as const
 

@@ -1,1 +1,0 @@
-import{i as e}from"./motion-CrIIjPk1.js";import{s as t}from"./vendor-Dvax2o9_.js";import{c as n}from"./index-51IKW44f.js";import{t as r}from"./ServicePageLayout-DGiLEGV2.js";var i=e();function a(){let e=n(`mobile-development`);return e?(0,i.jsx)(r,{service:e}):(0,i.jsx)(t,{to:`/services`,replace:!0})}export{a as default};

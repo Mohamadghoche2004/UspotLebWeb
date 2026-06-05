@@ -31,4 +31,12 @@ export const testimonials = [
     logo: '/clients/powerontop.png',
     logoBg: 'light' as const,
   },
+  {
+    id: 5,
+    quote:
+      'UspotLeb built the Unique Minds platform we needed for schools and universities. Professional, creative work — we are very satisfied with the result.',
+    company: 'Unique Minds',
+    logo: '/clients/unique-minds.png',
+    logoBg: 'light' as const,
+  },
 ] as const

@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import { Layout } from '@/components/layout/Layout'
 
@@ -14,38 +14,22 @@ const Portfolio = lazy(() => import('@/pages/Portfolio'))
 const About = lazy(() => import('@/pages/About'))
 const Contact = lazy(() => import('@/pages/Contact'))
 
-function PageLoader() {
-  return (
-    <div className="flex min-h-[60vh] items-center justify-center">
-      <div className="h-10 w-10 animate-spin rounded-full border-2 border-violet-500 border-t-transparent" />
-    </div>
-  )
-}
-
-function withSuspense(Component: React.ComponentType) {
-  return (
-    <Suspense fallback={<PageLoader />}>
-      <Component />
-    </Suspense>
-  )
-}
-
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     children: [
-      { index: true, element: withSuspense(Home) },
-      { path: 'services', element: withSuspense(Services) },
-      { path: 'services/web-development', element: withSuspense(WebDevelopment) },
-      { path: 'services/mobile-development', element: withSuspense(MobileDevelopment) },
-      { path: 'services/ui-ux-design', element: withSuspense(UiUxDesign) },
-      { path: 'services/graphic-design', element: withSuspense(GraphicDesign) },
-      { path: 'services/digital-marketing', element: withSuspense(DigitalMarketing) },
-      { path: 'services/branding', element: withSuspense(Branding) },
-      { path: 'portfolio', element: withSuspense(Portfolio) },
-      { path: 'about', element: withSuspense(About) },
-      { path: 'contact', element: withSuspense(Contact) },
+      { index: true, element: <Home /> },
+      { path: 'services', element: <Services /> },
+      { path: 'services/web-development', element: <WebDevelopment /> },
+      { path: 'services/mobile-development', element: <MobileDevelopment /> },
+      { path: 'services/ui-ux-design', element: <UiUxDesign /> },
+      { path: 'services/graphic-design', element: <GraphicDesign /> },
+      { path: 'services/digital-marketing', element: <DigitalMarketing /> },
+      { path: 'services/branding', element: <Branding /> },
+      { path: 'portfolio', element: <Portfolio /> },
+      { path: 'about', element: <About /> },
+      { path: 'contact', element: <Contact /> },
     ],
   },
 ])

@@ -4,6 +4,7 @@ import { siteConfig } from '@/data/site.config'
 import { PageHero } from '@/components/layout/PageHero'
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter'
 import { Button } from '@/components/ui/Button'
+import { Badge } from '@/components/ui/Badge'
 import { fadeUp, staggerContainer } from '@/lib/motion'
 
 export default function About() {
@@ -76,18 +77,22 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
           >
             {teamMembers.map((member) => (
               <motion.article key={member.name} variants={fadeUp} className="glass rounded-2xl overflow-hidden">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  loading="lazy"
-                  className="aspect-square w-full object-cover"
-                />
+                <div className="flex aspect-square w-full items-center justify-center bg-gradient-to-br from-violet-600/30 to-cyan-500/20">
+                  <span className="font-display text-5xl font-bold text-white/90">{member.initials}</span>
+                </div>
                 <div className="p-5">
-                  <h3 className="font-bold">{member.name}</h3>
+                  <div className="mb-1 flex flex-wrap items-center gap-2">
+                    <h3 className="font-bold">{member.name}</h3>
+                    {member.isOwner && (
+                      <Badge variant="gradient" className="text-[10px]">
+                        Owner
+                      </Badge>
+                    )}
+                  </div>
                   <p className="text-sm text-violet-400">{member.role}</p>
                   <p className="mt-2 text-sm text-white/60">{member.bio}</p>
                 </div>

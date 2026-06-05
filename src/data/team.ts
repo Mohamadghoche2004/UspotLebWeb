@@ -1,35 +1,38 @@
-export const teamMembers = [
+export interface TeamMember {
+  name: string
+  role: string
+  bio: string
+  isOwner?: boolean
+  initials: string
+}
+
+export const teamMembers: TeamMember[] = [
   {
-    name: 'Alex Rivera',
+    name: 'Mohamad AL Ghoche',
+    role: 'Owner · Full Stack Developer & Meta Ads',
+    bio: 'Founder of UspotLeb. Builds full-stack web applications and drives growth through Meta Ads Manager campaigns that deliver measurable results.',
+    isOwner: true,
+    initials: 'MG',
+  },
+  {
+    name: 'Dana AL Ghoche',
+    role: 'Graphic Designer · UI/UX · Frontend Developer',
+    bio: 'Creates stunning visual identities and intuitive interfaces, bringing brands to life from concept through polished frontend implementation.',
+    initials: 'DG',
+  },
+  {
+    name: 'Mahmoud Ramadan',
+    role: 'Full Stack · Mobile & AI Apps Developer',
+    bio: 'Develops full-stack web and mobile applications, with expertise in building intelligent AI-powered solutions for modern businesses.',
+    initials: 'MR',
+  },
+  {
+    name: 'Rafeh Saayfen',
     role: 'Full Stack Developer',
-    bio: 'Architects scalable web applications with modern JavaScript ecosystems and cloud-native infrastructure.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+    bio: 'Engineers robust, scalable web applications with clean architecture and modern technologies across the full development stack.',
+    initials: 'RS',
   },
-  {
-    name: 'Jordan Chen',
-    role: 'Full Stack Developer & Ads Specialist',
-    bio: 'Builds high-performance applications while driving measurable growth through data-driven advertising campaigns.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
-  },
-  {
-    name: 'Maya Patel',
-    role: 'Mobile App Developer',
-    bio: 'Creates seamless iOS and Android experiences with React Native and Flutter for brands that demand excellence.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
-  },
-  {
-    name: 'Sofia Andersson',
-    role: 'UI/UX Designer',
-    bio: 'Designs intuitive, conversion-focused interfaces backed by user research and premium visual systems.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop',
-  },
-  {
-    name: 'Lucas Nguyen',
-    role: 'Graphic Designer',
-    bio: 'Crafts distinctive brand identities, marketing assets, and visual narratives that captivate audiences.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
-  },
-] as const
+]
 
 export const values = [
   {

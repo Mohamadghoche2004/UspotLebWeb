@@ -3,6 +3,7 @@ export type PortfolioCategory =
   | 'Landing Page'
   | 'Restaurant'
   | 'E-Commerce'
+  | 'Education'
 
 export type LogoBackground = 'light' | 'dark'
 
@@ -24,10 +25,10 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Easy Tek',
     category: 'Dashboard',
     description:
-      'A custom rental management dashboard for a gaming shop — track inventory, bookings, returns, and daily operations in one streamlined interface.',
+      'A custom rental management dashboard for a gaming shop — built with Next.js full-stack (frontend and backend). Track inventory, bookings, returns, and daily operations in one streamlined interface.',
     logo: '/clients/easy-tek.png',
     logoBg: 'dark',
-    technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Node.js'],
     results: 'Smoother game rentals & shop operations',
     featured: true,
   },
@@ -67,6 +68,18 @@ export const portfolioProjects: PortfolioProject[] = [
     results: 'Fully satisfied — ready to sell online',
     featured: true,
   },
+  {
+    id: 'unique-minds',
+    title: 'Unique Minds',
+    category: 'Education',
+    description:
+      'Unique Minds was founded with a clear mission: to bridge the gap between traditional education and the skills required for the future. We empower the next generation by providing schools, universities, and technical institutes with advanced international curricula, teaching methods, and hands-on tools. Specializing in technology, engineering, computer science, and Artificial Intelligence (AI), we go beyond theory to deliver end-to-end solutions — including professional educator training, cutting-edge AI software, and robust infrastructure. By bringing world-class educational resources to Lebanon and the broader Arab region, we ensure academic institutions are fully equipped to prepare students for the global digital economy.',
+    logo: '/clients/unique-minds.png',
+    logoBg: 'light',
+    technologies: ['React', 'TypeScript', 'Node.js', 'AI Integration'],
+    results: 'Empowering institutions for the digital economy',
+    featured: false,
+  },
 ]
 
 export const portfolioCategories: PortfolioCategory[] = [
@@ -74,4 +87,5 @@ export const portfolioCategories: PortfolioCategory[] = [
   'Landing Page',
   'Restaurant',
   'E-Commerce',
+  'Education',
 ]

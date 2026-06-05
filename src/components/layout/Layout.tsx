@@ -1,8 +1,8 @@
-import { Outlet, useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { PageTransition } from './PageTransition'
+import { AnimatedOutlet } from './AnimatedOutlet'
 import { SEOHead } from '@/components/seo/SEOHead'
 import { JsonLd } from '@/components/seo/JsonLd'
 
@@ -14,11 +14,9 @@ export function Layout() {
       <SEOHead />
       <JsonLd />
       <Navbar />
-      <AnimatePresence mode="wait">
-        <PageTransition key={location.pathname}>
-          <Outlet />
-        </PageTransition>
-      </AnimatePresence>
+      <PageTransition pageKey={location.pathname}>
+        <AnimatedOutlet />
+      </PageTransition>
       <Footer />
     </>
   )

@@ -301,7 +301,7 @@ export const allServices: ServiceDetail[] = [
     href: '/services/digital-marketing',
     deliverables: [
       'SEO audit & optimization',
-      'Google Ads & Meta advertising',
+      'Meta advertising',
       'Social media strategy & management',
       'Content marketing & blog strategy',
       'Email marketing campaigns',
@@ -314,7 +314,7 @@ export const allServices: ServiceDetail[] = [
       'Scalable campaigns that grow with your budget',
       'Dedicated account management and strategy calls',
     ],
-    technologies: ['Google Analytics', 'Google Ads', 'Meta Business Suite', 'SEMrush', 'Mailchimp'],
+    technologies: ['Google Analytics', 'Meta Business Suite', 'SEMrush', 'Mailchimp'],
     faqs: [
       {
         question: 'What results can I expect from digital marketing?',
