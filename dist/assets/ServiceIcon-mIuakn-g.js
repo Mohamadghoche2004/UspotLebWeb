@@ -1,0 +1,1 @@
+import{i as e}from"./motion-CrIIjPk1.js";import{A as t,C as n,M as r,O as i,S as a,b as o,g as s,j as c,k as l,w as u,x as d}from"./index-Boxuu15N.js";var f=e(),p={code:o,mobile:n,design:a,graphic:i,brand:l,marketing:c,team:r,tech:o,speed:u,support:t,strategy:s,layers:d};function m({name:e,className:t}){return(0,f.jsx)(p[e]??o,{className:t,"aria-hidden":!0})}export{m as t};

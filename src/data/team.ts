@@ -4,6 +4,7 @@ export interface TeamMember {
   bio: string
   isOwner?: boolean
   initials: string
+  image?: string
 }
 
 export const teamMembers: TeamMember[] = [
@@ -13,6 +14,7 @@ export const teamMembers: TeamMember[] = [
     bio: 'Founder of UspotLeb. Builds full-stack web applications and drives growth through Meta Ads Manager campaigns that deliver measurable results.',
     isOwner: true,
     initials: 'MG',
+    image: '/team/mohamad-al-ghoche.png',
   },
   {
     name: 'Dana AL Ghoche',

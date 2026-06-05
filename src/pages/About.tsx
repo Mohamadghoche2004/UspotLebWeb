@@ -81,8 +81,18 @@ export default function About() {
           >
             {teamMembers.map((member) => (
               <motion.article key={member.name} variants={fadeUp} className="glass rounded-2xl overflow-hidden">
-                <div className="flex aspect-square w-full items-center justify-center bg-gradient-to-br from-violet-600/30 to-cyan-500/20">
-                  <span className="font-display text-5xl font-bold text-white/90">{member.initials}</span>
+                <div className="aspect-square w-full overflow-hidden bg-gradient-to-br from-violet-600/30 to-cyan-500/20">
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center">
+                      <span className="font-display text-5xl font-bold text-white/90">{member.initials}</span>
+                    </div>
+                  )}
                 </div>
                 <div className="p-5">
                   <div className="mb-1 flex flex-wrap items-center gap-2">
