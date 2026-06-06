@@ -18,10 +18,8 @@ export const siteConfig = {
     country: 'LB',
   },
   social: {
-    twitter: 'https://twitter.com/uspotleb',
-    linkedin: 'https://linkedin.com/company/uspotleb',
-    instagram: 'https://instagram.com/uspotleb',
-    facebook: 'https://facebook.com/uspotleb',
+    instagram: 'https://www.instagram.com/uspot_leb?igsh=b3ZzZWhxbXRhYm95',
+    facebook: 'https://www.facebook.com/share/1HEkpoQ6cM/',
   },
   stats: {
     projects: 50,

@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom'
-import { FaTwitter, FaLinkedinIn, FaInstagram, FaFacebookF } from 'react-icons/fa'
+import { FaInstagram, FaFacebookF } from 'react-icons/fa'
 import { siteConfig, navLinks } from '@/data/site.config'
 import { homeServices } from '@/data/services'
 import { Logo } from '@/components/ui/Logo'
 
 const socialIcons = [
-  { href: siteConfig.social.twitter, icon: FaTwitter, label: 'Twitter' },
-  { href: siteConfig.social.linkedin, icon: FaLinkedinIn, label: 'LinkedIn' },
   { href: siteConfig.social.instagram, icon: FaInstagram, label: 'Instagram' },
   { href: siteConfig.social.facebook, icon: FaFacebookF, label: 'Facebook' },
 ]

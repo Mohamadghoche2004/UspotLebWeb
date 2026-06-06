@@ -1,1 +1,0 @@
-import{i as e}from"./motion-CrIIjPk1.js";import{s as t}from"./vendor-DHs8iwC1.js";import{o as n}from"./index-jKUzbN8j.js";import{t as r}from"./ServicePageLayout-DzCcg2XW.js";var i=e();function a(){let e=n(`branding`);return e?(0,i.jsx)(r,{service:e}):(0,i.jsx)(t,{to:`/services`,replace:!0})}export{a as default};
