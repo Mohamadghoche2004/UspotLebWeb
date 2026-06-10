@@ -1,0 +1,1 @@
+import{i as e}from"./motion-CrIIjPk1.js";import{s as t}from"./vendor-DHs8iwC1.js";import{o as n}from"./index-CltFSE53.js";import{t as r}from"./ServicePageLayout-CUGGqInz.js";var i=e();function a(){let e=n(`digital-marketing`);return e?(0,i.jsx)(r,{service:e}):(0,i.jsx)(t,{to:`/services`,replace:!0})}export{a as default};

@@ -29,11 +29,11 @@ export function WhyChooseUsSection() {
                 index === 0 ? 'sm:col-span-2 lg:col-span-1 lg:row-span-1' : ''
               }`}
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600/20 to-cyan-500/20 text-violet-400">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600/20 to-cyan-500/20 text-accent">
                 <ServiceIcon name={item.icon} className="h-6 w-6" />
               </div>
               <h3 className="mb-2 text-lg font-bold">{item.title}</h3>
-              <p className="text-sm text-white/60">{item.description}</p>
+              <p className="text-sm text-muted-foreground">{item.description}</p>
             </motion.div>
           ))}
         </motion.div>

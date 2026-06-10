@@ -12,9 +12,9 @@ export function Badge({ children, className, variant = 'default' }: BadgeProps) 
     <span
       className={cn(
         'inline-flex items-center rounded-full px-3 py-1 text-xs font-medium',
-        variant === 'default' && 'glass text-white/80',
+        variant === 'default' && 'glass text-muted-foreground',
         variant === 'gradient' &&
-          'bg-gradient-to-r from-violet-500/20 to-cyan-500/20 text-cyan-300 border border-cyan-500/20',
+          'border border-cyan-500/20 bg-gradient-to-r from-violet-500/20 to-cyan-500/20 text-accent-cyan',
         className,
       )}
     >

@@ -6,7 +6,7 @@ import { fadeUp, staggerContainer } from '@/lib/motion'
 
 export function AboutSection() {
   return (
-    <section className="section-padding bg-surface/30">
+    <section className="section-padding section-alt">
       <div className="container-custom">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
@@ -21,7 +21,7 @@ export function AboutSection() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="space-y-4 text-white/60"
+              className="space-y-4 text-muted-foreground"
             >
               <p>
                 We are a full-service digital agency passionate about transforming ideas into
@@ -51,11 +51,11 @@ export function AboutSection() {
                 variants={fadeUp}
                 className="glass rounded-2xl p-6 text-center lg:text-left xl:text-center"
               >
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/20 text-violet-400 lg:mx-0 xl:mx-auto">
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/20 text-accent lg:mx-0 xl:mx-auto">
                   <ServiceIcon name={pillar.icon} className="h-6 w-6" />
                 </div>
                 <h3 className="mb-2 font-display text-lg font-bold">{pillar.title}</h3>
-                <p className="text-sm text-white/60">{pillar.description}</p>
+                <p className="text-sm text-muted-foreground">{pillar.description}</p>
               </motion.div>
             ))}
           </motion.div>

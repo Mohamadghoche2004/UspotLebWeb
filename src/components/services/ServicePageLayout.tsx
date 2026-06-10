@@ -34,7 +34,7 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mx-auto mb-16 max-w-3xl text-center text-lg text-white/60"
+            className="mx-auto mb-16 max-w-3xl text-center text-lg text-muted-foreground"
           >
             {service.longDescription}
           </motion.p>
@@ -49,7 +49,7 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
               <h2 className="mb-6 text-2xl font-bold">What We Deliver</h2>
               <ul className="space-y-3">
                 {service.deliverables.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/70">
+                  <li key={item} className="flex items-start gap-3 text-muted-foreground">
                     <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gradient-to-r from-violet-400 to-cyan-400" />
                     {item}
                   </li>
@@ -66,7 +66,7 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
               <h2 className="mb-6 text-2xl font-bold">Key Benefits</h2>
               <ul className="space-y-3">
                 {service.benefits.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/70">
+                  <li key={item} className="flex items-start gap-3 text-muted-foreground">
                     <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-cyan-400" />
                     {item}
                   </li>
@@ -107,10 +107,10 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
                   variants={fadeUp}
                   className="group glass rounded-xl p-6"
                 >
-                  <summary className="cursor-pointer list-none font-semibold text-white marker:content-none">
+                  <summary className="cursor-pointer list-none font-semibold text-foreground marker:content-none">
                     {faq.question}
                   </summary>
-                  <p className="mt-4 text-white/60">{faq.answer}</p>
+                  <p className="mt-4 text-muted-foreground">{faq.answer}</p>
                 </motion.details>
               ))}
             </div>
@@ -133,7 +133,7 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
                 >
                   <ServiceIcon
                     name={s.icon}
-                    className="mb-3 h-6 w-6 text-violet-400 transition-transform group-hover:scale-110"
+                    className="mb-3 h-6 w-6 text-accent transition-transform group-hover:scale-110"
                   />
                   <h3 className="font-semibold">{s.title}</h3>
                 </Link>
@@ -143,10 +143,10 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
         </div>
       </section>
 
-      <section className="section-padding bg-surface/30">
+      <section className="section-padding section-alt">
         <div className="container-custom text-center">
           <h2 className="text-3xl font-bold md:text-4xl">Ready to Get Started?</h2>
-          <p className="mx-auto mt-4 max-w-xl text-white/60">
+          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Book a free consultation and let&apos;s discuss how we can help achieve your goals.
           </p>
           <Button to="/contact" size="lg" className="mt-8">

@@ -33,15 +33,15 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-widest text-violet-400">
+        <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-widest text-accent">
           {eyebrow}
         </span>
       )}
-      <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
+      <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-lg text-white/60 md:text-xl">{description}</p>
+        <p className="mt-4 text-lg text-muted-foreground md:text-xl">{description}</p>
       )}
     </motion.div>
   )

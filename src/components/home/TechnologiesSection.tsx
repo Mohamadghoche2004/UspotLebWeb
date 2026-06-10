@@ -22,14 +22,14 @@ export function TechnologiesSection() {
         >
           {technologies.map((group) => (
             <motion.div key={group.category} variants={fadeUp} className="glass rounded-2xl p-6">
-              <h3 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider text-violet-400">
+              <h3 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider text-accent">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-lg bg-white/5 px-3 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-violet-500/20 hover:text-white"
+                    className="rounded-lg bg-foreground/5 px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-violet-500/20 hover:text-foreground"
                   >
                     {item}
                   </span>

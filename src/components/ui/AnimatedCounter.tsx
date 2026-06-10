@@ -18,7 +18,7 @@ export function AnimatedCounter({ value, suffix = '+', label }: AnimatedCounterP
         {count}
         {suffix}
       </span>
-      <span className="mt-2 block text-sm text-white/60 md:text-base">{label}</span>
+      <span className="mt-2 block text-sm text-muted-foreground md:text-base">{label}</span>
     </div>
   )
 }

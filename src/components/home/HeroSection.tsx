@@ -28,7 +28,7 @@ function StaticOrb({
     <div
       aria-hidden
       className={cn(
-        'pointer-events-none absolute rounded-full blur-3xl opacity-50',
+        'pointer-events-none absolute rounded-full blur-3xl opacity-40 dark:opacity-50',
         orbColors[color],
         orbSizes[size],
         className,
@@ -46,7 +46,7 @@ export function HeroSection() {
 
       <div className="container-custom relative z-10">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="mb-6 inline-block rounded-full glass px-4 py-2 text-sm font-medium text-violet-300">
+          <span className="mb-6 inline-block rounded-full glass px-4 py-2 text-sm font-medium text-accent">
             Full-Service Digital Agency
           </span>
 
@@ -57,7 +57,7 @@ export function HeroSection() {
             </span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/60 md:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
             Custom websites, mobile apps, branding, UI/UX design, and digital marketing
             solutions that help businesses grow.
           </p>
@@ -76,7 +76,7 @@ export function HeroSection() {
           <a
             href="#services"
             aria-label="Scroll to services"
-            className="flex h-12 w-12 items-center justify-center rounded-full glass text-white/60 hover:text-white"
+            className="flex h-12 w-12 items-center justify-center rounded-full glass text-muted-foreground hover:text-foreground"
           >
             <HiArrowDown className="h-5 w-5" />
           </a>

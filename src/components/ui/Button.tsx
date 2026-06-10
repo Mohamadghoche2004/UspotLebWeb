@@ -21,10 +21,10 @@ type ButtonProps = ButtonAsButton | ButtonAsLink
 const variants: Record<ButtonVariant, string> = {
   primary:
     'bg-gradient-to-r from-violet-600 to-cyan-500 text-white hover:from-violet-500 hover:to-cyan-400 shadow-lg shadow-violet-500/25',
-  secondary: 'glass text-white hover:bg-white/10',
-  ghost: 'text-white/80 hover:text-white hover:bg-white/5',
+  secondary: 'glass text-foreground hover:bg-foreground/10',
+  ghost: 'text-muted-foreground hover:text-foreground hover:bg-foreground/5',
   outline:
-    'border border-white/20 text-white hover:border-violet-400/50 hover:bg-violet-500/10',
+    'border border-border-subtle text-foreground hover:border-violet-400/50 hover:bg-violet-500/10',
 }
 
 const sizes: Record<ButtonSize, string> = {

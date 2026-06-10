@@ -1,6 +1,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { NavLink } from 'react-router-dom'
 import { HiMenuAlt3, HiX } from 'react-icons/hi'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { navLinks } from '@/data/site.config'
 import { useNavbarScroll } from '@/hooks/useNavbarScroll'
 import { Button } from '@/components/ui/Button'
@@ -37,7 +38,7 @@ export function Navbar() {
                 className={cn(
                   'pointer-events-none absolute inset-0 border-b transition-[background-color,border-color,box-shadow] duration-300 ease-out',
                   showSolid
-                    ? 'border-white/10 bg-background/95 shadow-lg shadow-black/20'
+                    ? 'border-border-subtle bg-background/95 shadow-lg shadow-[var(--nav-shadow)]'
                     : 'border-transparent bg-transparent shadow-none',
                 )}
               />
@@ -58,8 +59,8 @@ export function Navbar() {
                         to={link.href}
                         className={({ isActive }) =>
                           cn(
-                            'relative text-sm font-medium transition-colors hover:text-white',
-                            isActive ? 'text-white' : 'text-white/60',
+                            'relative text-sm font-medium transition-colors hover:text-foreground',
+                            isActive ? 'text-foreground' : 'text-muted-foreground',
                           )
                         }
                       >
@@ -75,15 +76,17 @@ export function Navbar() {
                     ))}
                   </div>
 
-                  <div className="ml-6 hidden lg:block">
+                  <div className="ml-4 hidden items-center gap-3 lg:flex">
+                    <ThemeToggle />
                     <Button to="/contact" size="sm">
                       Book Consultation
                     </Button>
                   </div>
 
-                  <div className="absolute inset-y-0 right-0 flex items-center lg:hidden">
+                  <div className="absolute inset-y-0 right-0 flex items-center gap-2 lg:hidden">
+                    <ThemeToggle />
                     <DisclosureButton
-                      className="group inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/10 text-white hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+                      className="group inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-border-subtle bg-foreground/10 text-foreground hover:bg-foreground/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
                     >
                       <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
                       <HiMenuAlt3
@@ -99,7 +102,7 @@ export function Navbar() {
 
             <DisclosurePanel
               transition
-              className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-white/10 bg-surface transition duration-200 ease-out data-closed:pointer-events-none data-closed:opacity-0 lg:hidden"
+              className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-border-subtle bg-surface transition duration-200 ease-out data-closed:pointer-events-none data-closed:opacity-0 lg:hidden"
             >
               <nav className="container-custom flex flex-col gap-2 py-8" aria-label="Mobile navigation">
                 {navLinks.map((link) => (
@@ -111,8 +114,8 @@ export function Navbar() {
                       cn(
                         'block w-full rounded-xl px-4 py-3 text-left text-lg font-medium transition-colors',
                         isActive
-                          ? 'bg-white/15 text-white'
-                          : 'text-white/90 hover:bg-white/10',
+                          ? 'bg-foreground/15 text-foreground'
+                          : 'text-foreground hover:bg-foreground/10',
                       )
                     }
                   >

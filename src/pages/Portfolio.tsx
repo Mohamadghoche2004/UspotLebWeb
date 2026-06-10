@@ -41,7 +41,7 @@ export default function Portfolio() {
                   'rounded-full px-4 py-2 text-sm font-medium transition-all',
                   activeCategory === cat
                     ? 'bg-gradient-to-r from-violet-600 to-cyan-500 text-white'
-                    : 'glass text-white/60 hover:text-white',
+                    : 'glass text-muted-foreground hover:text-foreground',
                 )}
               >
                 {cat}
@@ -73,7 +73,7 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+            className="overlay-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
             onClick={() => setSelectedId(null)}
           >
             <motion.div
@@ -104,8 +104,8 @@ export default function Portfolio() {
               <h2 id="project-title" className="text-2xl font-bold">
                 {selected.title}
               </h2>
-              <p className="mt-3 text-white/60">{selected.description}</p>
-              <p className="mt-4 font-semibold text-cyan-400">{selected.results}</p>
+              <p className="mt-3 text-muted-foreground">{selected.description}</p>
+              <p className="mt-4 font-semibold text-accent-cyan">{selected.results}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {selected.technologies.map((tech) => (
                   <Badge key={tech}>{tech}</Badge>
@@ -119,10 +119,10 @@ export default function Portfolio() {
         )}
       </AnimatePresence>
 
-      <section className="section-padding bg-surface/30">
+      <section className="section-padding section-alt">
         <div className="container-custom text-center">
           <h2 className="text-3xl font-bold">Have a Project in Mind?</h2>
-          <p className="mx-auto mt-4 max-w-xl text-white/60">
+          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Let&apos;s create something exceptional together.
           </p>
           <Button to="/contact" size="lg" className="mt-8">

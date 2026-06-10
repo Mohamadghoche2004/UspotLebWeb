@@ -10,7 +10,7 @@ const featured = portfolioProjects.filter((p) => p.featured).slice(0, 4)
 
 export function PortfolioSection() {
   return (
-    <section className="section-padding bg-surface/30">
+    <section className="section-padding section-alt">
       <div className="container-custom">
         <SectionHeading
           eyebrow="Our Work"

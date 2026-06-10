@@ -36,7 +36,7 @@ export default function About() {
             className="mx-auto max-w-3xl text-center"
           >
             <h2 className="text-3xl font-bold">Our Mission</h2>
-            <p className="mt-6 text-lg text-white/60">
+            <p className="mt-6 text-lg text-muted-foreground">
               To empower businesses of all sizes with premium digital solutions that drive growth,
               build trust, and create lasting impact. We believe great design and technology should
               be accessible to every ambitious brand.
@@ -52,15 +52,15 @@ export default function About() {
           >
             {values.map((value) => (
               <motion.div key={value.title} variants={fadeUp} className="glass rounded-2xl p-6 text-center">
-                <h3 className="mb-2 font-display text-lg font-bold text-violet-400">{value.title}</h3>
-                <p className="text-sm text-white/60">{value.description}</p>
+                <h3 className="mb-2 font-display text-lg font-bold text-accent">{value.title}</h3>
+                <p className="text-sm text-muted-foreground">{value.description}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      <section className="section-padding bg-surface/30">
+      <section className="section-padding section-alt">
         <div className="container-custom">
           <motion.h2
             variants={fadeUp}
@@ -90,7 +90,7 @@ export default function About() {
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center">
-                      <span className="font-display text-5xl font-bold text-white/90">{member.initials}</span>
+                      <span className="font-display text-5xl font-bold text-foreground">{member.initials}</span>
                     </div>
                   )}
                 </div>
@@ -103,8 +103,8 @@ export default function About() {
                       </Badge>
                     )}
                   </div>
-                  <p className="text-sm text-violet-400">{member.role}</p>
-                  <p className="mt-2 text-sm text-white/60">{member.bio}</p>
+                  <p className="text-sm text-accent">{member.role}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{member.bio}</p>
                 </div>
               </motion.article>
             ))}
@@ -122,10 +122,10 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section-padding bg-surface/30">
+      <section className="section-padding section-alt">
         <div className="container-custom text-center">
           <h2 className="text-3xl font-bold">Let&apos;s Work Together</h2>
-          <p className="mx-auto mt-4 max-w-xl text-white/60">
+          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Ready to bring your vision to life? We&apos;d love to hear from you.
           </p>
           <Button to="/contact" size="lg" className="mt-8">

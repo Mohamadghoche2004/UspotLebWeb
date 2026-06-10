@@ -1,7 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var stored = localStorage.getItem('uspot-theme');
+        var theme = stored === 'light' || stored === 'dark' ? stored : 'dark';
+        document.documentElement.classList.remove('light', 'dark');
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png" />

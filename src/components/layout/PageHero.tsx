@@ -19,16 +19,16 @@ export function PageHero({ title, description, breadcrumbs }: PageHeroProps) {
       <div className="container-custom relative z-10">
         {breadcrumbs && (
           <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex flex-wrap items-center gap-2 text-sm text-white/50">
+            <ol className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
               {breadcrumbs.map((crumb, i) => (
                 <li key={crumb.label} className="flex items-center gap-2">
                   {i > 0 && <HiChevronRight className="h-3 w-3" />}
                   {crumb.href ? (
-                    <Link to={crumb.href} className="hover:text-white transition-colors">
+                    <Link to={crumb.href} className="hover:text-foreground transition-colors">
                       {crumb.label}
                     </Link>
                   ) : (
-                    <span className="text-white/80">{crumb.label}</span>
+                    <span className="text-foreground">{crumb.label}</span>
                   )}
                 </li>
               ))}
@@ -40,7 +40,7 @@ export function PageHero({ title, description, breadcrumbs }: PageHeroProps) {
           <h1 className="max-w-4xl text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
             {title}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/60 md:text-xl">{description}</p>
+          <p className="mt-4 max-w-2xl text-lg text-muted-foreground md:text-xl">{description}</p>
         </motion.div>
       </div>
     </section>

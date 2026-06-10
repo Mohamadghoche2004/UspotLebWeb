@@ -101,8 +101,8 @@ export function ContactForm({ compact = false }: ContactFormProps) {
 
   const inputClass = (field: keyof FormData) =>
     cn(
-      'w-full rounded-xl border bg-white/5 px-4 py-3 text-white placeholder:text-white/40 transition-colors focus:border-violet-500/50 focus:outline-none focus:ring-2 focus:ring-violet-500/20',
-      errors[field] ? 'border-red-500/50' : 'border-white/10',
+      'input-field w-full rounded-xl px-4 py-3 transition-colors focus:border-violet-500/50 focus:outline-none focus:ring-2 focus:ring-violet-500/20',
+      errors[field] ? 'border-red-500/50' : 'border-border-subtle',
     )
 
   if (submitted) {
@@ -113,9 +113,9 @@ export function ContactForm({ compact = false }: ContactFormProps) {
           animate={{ opacity: 1, scale: 1 }}
           className="glass rounded-2xl p-8 text-center"
         >
-          <HiCheckCircle className="mx-auto mb-4 h-16 w-16 text-cyan-400" />
+          <HiCheckCircle className="mx-auto mb-4 h-16 w-16 text-accent-cyan" />
           <h3 className="mb-2 text-2xl font-bold">Thank You!</h3>
-          <p className="text-white/60">
+          <p className="text-muted-foreground">
             We&apos;ve received your message and will get back to you within 24 hours.
           </p>
           <Button className="mt-6" variant="secondary" onClick={() => setSubmitted(false)}>
@@ -130,7 +130,7 @@ export function ContactForm({ compact = false }: ContactFormProps) {
     <form onSubmit={handleSubmit} className="glass rounded-2xl p-6 md:p-8" noValidate>
       <div className={cn('grid gap-4', compact ? 'grid-cols-1' : 'md:grid-cols-2')}>
         <div>
-          <label htmlFor="name" className="mb-2 block text-sm font-medium text-white/80">
+          <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground/80">
             Name *
           </label>
           <input
@@ -141,11 +141,11 @@ export function ContactForm({ compact = false }: ContactFormProps) {
             className={inputClass('name')}
             placeholder="John Doe"
           />
-          {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name}</p>}
+          {errors.name && <p className="mt-1 text-xs text-error">{errors.name}</p>}
         </div>
 
         <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-medium text-white/80">
+          <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground/80">
             Email *
           </label>
           <input
@@ -156,11 +156,11 @@ export function ContactForm({ compact = false }: ContactFormProps) {
             className={inputClass('email')}
             placeholder="john@company.com"
           />
-          {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
+          {errors.email && <p className="mt-1 text-xs text-error">{errors.email}</p>}
         </div>
 
         <div>
-          <label htmlFor="phone" className="mb-2 block text-sm font-medium text-white/80">
+          <label htmlFor="phone" className="mb-2 block text-sm font-medium text-foreground/80">
             Phone
           </label>
           <input
@@ -174,7 +174,7 @@ export function ContactForm({ compact = false }: ContactFormProps) {
         </div>
 
         <div>
-          <label htmlFor="company" className="mb-2 block text-sm font-medium text-white/80">
+          <label htmlFor="company" className="mb-2 block text-sm font-medium text-foreground/80">
             Company
           </label>
           <input
@@ -188,7 +188,7 @@ export function ContactForm({ compact = false }: ContactFormProps) {
         </div>
 
         <div>
-          <label htmlFor="service" className="mb-2 block text-sm font-medium text-white/80">
+          <label htmlFor="service" className="mb-2 block text-sm font-medium text-foreground/80">
             Service Needed
           </label>
           <select
@@ -209,7 +209,7 @@ export function ContactForm({ compact = false }: ContactFormProps) {
         </div>
 
         <div>
-          <label htmlFor="budget" className="mb-2 block text-sm font-medium text-white/80">
+          <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground/80">
             Budget Range
           </label>
           <select
@@ -230,7 +230,7 @@ export function ContactForm({ compact = false }: ContactFormProps) {
         </div>
 
         <div className={compact ? '' : 'md:col-span-2'}>
-          <label htmlFor="message" className="mb-2 block text-sm font-medium text-white/80">
+          <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground/80">
             Message *
           </label>
           <textarea
@@ -241,12 +241,12 @@ export function ContactForm({ compact = false }: ContactFormProps) {
             className={cn(inputClass('message'), 'resize-none')}
             placeholder="Tell us about your project..."
           />
-          {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
+          {errors.message && <p className="mt-1 text-xs text-error">{errors.message}</p>}
         </div>
       </div>
 
       {submitError && (
-        <p className="mt-4 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+        <p className="mt-4 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-error">
           {submitError}
         </p>
       )}

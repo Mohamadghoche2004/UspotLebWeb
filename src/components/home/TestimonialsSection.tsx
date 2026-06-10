@@ -27,7 +27,7 @@ export function TestimonialsSection() {
   const testimonial = testimonials[current]
 
   return (
-    <section className="section-padding bg-surface/30">
+    <section className="section-padding section-alt">
       <div className="container-custom">
         <SectionHeading
           eyebrow="Testimonials"
@@ -45,7 +45,7 @@ export function TestimonialsSection() {
               transition={{ duration: 0.4 }}
               className="glass rounded-3xl p-8 md:p-12"
             >
-              <p className="mb-8 text-lg leading-relaxed text-white/80 md:text-xl">
+              <p className="mb-8 text-lg leading-relaxed text-muted-foreground md:text-xl">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
               <footer className="flex items-center gap-4">
@@ -54,7 +54,7 @@ export function TestimonialsSection() {
                   alt={testimonial.company}
                   background={testimonial.logoBg}
                 />
-                <cite className="not-italic font-semibold text-white">{testimonial.company}</cite>
+                <cite className="not-italic font-semibold text-foreground">{testimonial.company}</cite>
               </footer>
             </motion.blockquote>
           </AnimatePresence>
@@ -64,7 +64,7 @@ export function TestimonialsSection() {
               type="button"
               onClick={prev}
               aria-label="Previous testimonial"
-              className="flex h-11 w-11 items-center justify-center rounded-full glass text-white/70 hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full glass text-muted-foreground hover:text-foreground"
             >
               <HiChevronLeft className="h-5 w-5" />
             </button>
@@ -76,7 +76,7 @@ export function TestimonialsSection() {
                   onClick={() => setCurrent(i)}
                   aria-label={`Go to testimonial ${i + 1}`}
                   className={`h-2 rounded-full transition-all ${
-                    i === current ? 'w-8 bg-violet-500' : 'w-2 bg-white/30'
+                    i === current ? 'w-8 bg-violet-500' : 'w-2 bg-foreground/30'
                   }`}
                 />
               ))}
@@ -85,7 +85,7 @@ export function TestimonialsSection() {
               type="button"
               onClick={next}
               aria-label="Next testimonial"
-              className="flex h-11 w-11 items-center justify-center rounded-full glass text-white/70 hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full glass text-muted-foreground hover:text-foreground"
             >
               <HiChevronRight className="h-5 w-5" />
             </button>

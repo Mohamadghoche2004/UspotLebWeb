@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { siteConfig } from '@/data/site.config'
+import { useTheme } from '@/contexts/ThemeContext'
 import { cn } from '@/lib/cn'
 
 interface LogoProps {
@@ -16,12 +17,15 @@ interface LogoProps {
 export function Logo({
   className,
   imageClassName,
-  variant = 'light',
+  variant,
   linkToHome = true,
   onClick,
   staticImage = false,
 }: LogoProps) {
-  const src = variant === 'light' ? siteConfig.logo.light : siteConfig.logo.dark
+  const { theme } = useTheme()
+  const resolvedVariant = variant ?? (theme === 'dark' ? 'light' : 'dark')
+  const src =
+    resolvedVariant === 'light' ? siteConfig.logo.light : siteConfig.logo.dark
   const imgClass = cn(
     'h-8 w-auto max-w-[160px] object-contain sm:h-9 sm:max-w-none md:h-11',
     imageClassName,

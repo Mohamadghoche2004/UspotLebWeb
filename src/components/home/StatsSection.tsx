@@ -13,7 +13,7 @@ export function StatsSection() {
   ]
 
   return (
-    <section className="section-padding bg-surface/30">
+    <section className="section-padding section-alt">
       <div className="container-custom">
         <SectionHeading
           eyebrow="By The Numbers"

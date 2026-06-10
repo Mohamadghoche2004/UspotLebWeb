@@ -6,7 +6,7 @@ export const siteConfig = {
   url: import.meta.env.VITE_SITE_URL || 'https://yourdomain.com',
   logo: {
     light: '/logo-white.png',
-    dark: '/logo-dark.png',
+    dark: '/uspotlebblack.png',
   },
   email: 'uspotleb@gmail.com',
   phone: '+961 76646946',

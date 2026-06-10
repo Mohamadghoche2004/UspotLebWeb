@@ -30,7 +30,7 @@ export function ProcessSection() {
                   {step.step}
                 </div>
                 <h3 className="mb-3 text-center text-xl font-bold">{step.title}</h3>
-                <p className="text-center text-sm text-white/60">{step.description}</p>
+                <p className="text-center text-sm text-muted-foreground">{step.description}</p>
                 {index < processSteps.length - 1 && (
                   <motion.div
                     className="absolute top-8 -right-3 hidden h-0.5 w-6 bg-cyan-400/50 lg:block"
@@ -51,7 +51,7 @@ export function ProcessSection() {
                   {step.step}
                 </div>
                 <h3 className="mb-2 text-xl font-bold">{step.title}</h3>
-                <p className="text-sm text-white/60">{step.description}</p>
+                <p className="text-sm text-muted-foreground">{step.description}</p>
               </motion.div>
             ))}
           </div>

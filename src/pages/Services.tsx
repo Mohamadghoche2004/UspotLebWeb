@@ -34,20 +34,20 @@ export default function Services() {
                   to={service.href}
                   className="group block h-full glass rounded-2xl p-8 transition-all hover:border-violet-500/30"
                 >
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600/20 to-cyan-500/20 text-violet-400">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600/20 to-cyan-500/20 text-accent">
                     <ServiceIcon name={service.icon} className="h-7 w-7" />
                   </div>
                   <h2 className="mb-3 text-2xl font-bold">{service.shortTitle}</h2>
-                  <p className="mb-6 text-white/60">{service.description}</p>
+                  <p className="mb-6 text-muted-foreground">{service.description}</p>
                   <ul className="mb-6 space-y-2">
                     {service.deliverables.slice(0, 3).map((d) => (
-                      <li key={d} className="flex items-center gap-2 text-sm text-white/50">
+                      <li key={d} className="flex items-center gap-2 text-sm text-muted-foreground">
                         <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
                         {d}
                       </li>
                     ))}
                   </ul>
-                  <span className="inline-flex items-center gap-2 text-sm font-medium text-violet-400 group-hover:text-cyan-400">
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-accent group-hover:text-accent-cyan">
                     View Details
                     <HiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
@@ -58,10 +58,10 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="section-padding bg-surface/30">
+      <section className="section-padding section-alt">
         <div className="container-custom text-center">
           <h2 className="text-3xl font-bold">Not Sure Where to Start?</h2>
-          <p className="mx-auto mt-4 max-w-xl text-white/60">
+          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Schedule a free consultation and we&apos;ll help you identify the best solution for your business.
           </p>
           <Button to="/contact" size="lg" className="mt-8">

@@ -28,47 +28,47 @@ export default function Contact() {
               className="lg:col-span-2"
             >
               <h2 className="mb-6 text-2xl font-bold">Get In Touch</h2>
-              <p className="mb-8 text-white/60">
+              <p className="mb-8 text-muted-foreground">
                 Fill out the form and our team will respond within 24 hours. Or reach us directly
                 using the contact details below.
               </p>
 
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-500/20 text-violet-400">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-500/20 text-accent">
                     <HiMail className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
                     <a
                       href={`mailto:${siteConfig.email}`}
-                      className="text-white/60 hover:text-white transition-colors"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
                     >
                       {siteConfig.email}
                     </a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-500/20 text-violet-400">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-500/20 text-accent">
                     <HiPhone className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="font-medium">Phone</p>
                     <a
                       href={`tel:${siteConfig.phone.replace(/\s/g, '')}`}
-                      className="text-white/60 hover:text-white transition-colors"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
                     >
                       {siteConfig.phone}
                     </a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-500/20 text-violet-400">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-500/20 text-accent">
                     <HiLocationMarker className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="font-medium">Office</p>
-                    <p className="text-white/60">
+                    <p className="text-muted-foreground">
                       {siteConfig.address.street}
                       <br />
                       {siteConfig.address.city}, {siteConfig.address.region}{' '}
@@ -79,8 +79,8 @@ export default function Contact() {
               </ul>
 
               <div className="mt-10 glass rounded-2xl p-6">
-                <p className="text-sm font-medium text-violet-400">Business Hours</p>
-                <p className="mt-2 text-white/60">Monday – Friday: 9:00 AM – 6:00 PM PST</p>
+                <p className="text-sm font-medium text-accent">Business Hours</p>
+                <p className="mt-2 text-muted-foreground">Monday – Friday: 9:00 AM – 6:00 PM PST</p>
               </div>
             </motion.div>
 
